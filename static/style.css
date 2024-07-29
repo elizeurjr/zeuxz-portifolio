@@ -56,10 +56,19 @@ html, body {
 }
 
 .nav-menu a,
+.nav-menu a:focus {
+  display: flex;
+  align-items: center;
+  color: #a8a9b4;
+  transition: 0.3s;
+  font-size: 15px;
+}
+
+.nav-menu a i,
 .nav-menu a:focus i {
-    font-size: 24px;
-    padding-right: 0.8rem;
-    color: #6f7180
+  font-size: 24px;
+  padding-right: 0.8rem;
+  color: #6f7180;
 }
 
 .nav-menu a:hover,
@@ -94,11 +103,10 @@ section#inicio {
 
 section#inicio h2 {
     font-size: 6rem;
-    padding-left: 0rem;
 }
 
 section#inicio span#subtitle{
-    margin-right: 0rem;
+    margin-right: 8rem;
     font-size:1.5rem;
 }
 
@@ -127,10 +135,10 @@ i.menu-mobile {
     z-index: 10;
     width: 45px;
     height: 45px;
-    display: flex;
+    display: none;
     justify-content: center;
     align-items: center;
-}
+  }
 
 .menu-nav-active {
     overflow: hidden;
@@ -155,6 +163,9 @@ i.menu-mobile {
         margin-right: 0;
         font-size: 1rem;
     }
+    #main{
+        margin-left: 0;
+    }
 }
 
 *::-webkit-scrollbar {
@@ -169,4 +180,8 @@ i.menu-mobile {
 
 *::-webkit-scrollbar-thumb {
     background-color: #252c90;
+}
+
+.section-bg{
+    background-color: #eff5ff;
 }
