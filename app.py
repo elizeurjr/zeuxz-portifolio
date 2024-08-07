@@ -3,7 +3,7 @@ from flask_mail import Mail, Message
 from config import email,mail_senha
 
 app = Flask(__name__)
-app.secret_key = 'eu100dmc'
+app.secret_key = 'Rua@035484'
 
 mail_settings = {
     "MAIL_SERVER": 'smtp.gmail.com',
@@ -18,9 +18,9 @@ app.config.update(mail_settings)
 mail = Mail(app)
 
 class Contato:
-    def _init(self, nome, email, mensagem):
-        self.nome = nome,
-        self.email = email,
+    def __init__(self, nome, email, mensagem):
+        self.nome = nome
+        self.email = email
         self.mensagem = mensagem
 
 @app.route('/')
@@ -36,12 +36,12 @@ def send():
             request.form["mensagem"]
         )
         msg = Message(
-            subject = f'{formContato.nome} te enviou uma mensagem no Portfólio',
-            sender = app.config.ger("MAIL_USERNAME"),
-            recipients= ['elizeuribeiroo@gmail.com', 'elizeuribeiroo1@outlook.com'],
-            body= f'''
-
-            f{formContato.nome} com o e-mail {formContato.email}, te enviou a seguinte menssagem: 
+            subject = f'{formContato.nome} te enviou uma mensagem no portfólio',
+            sender = app.config.get("MAIL_USERNAME"),
+            recipients= ['elizeuribeiroo@gmail.com', app.config.get("MAIL_USERNAME")],
+            body = f'''
+            
+            {formContato.nome} com o e-mail {formContato.email}, te enviou a seguinte mensagem:
 
             {formContato.mensagem}
 
